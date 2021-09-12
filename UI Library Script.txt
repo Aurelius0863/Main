@@ -1,0 +1,4 @@
+ New Green Position = {0.6, 0},{0.042, 0}
+
+Old Gray Position = {0.066, 0},{0.042, 0}
+
