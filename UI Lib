@@ -1,4 +1,4 @@
-
+-- Created By Aurelius#0863 --
 local lib = {}
 
 local circTime = 0.5
