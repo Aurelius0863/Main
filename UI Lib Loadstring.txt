@@ -267,8 +267,8 @@ function lib:CreateWindow(name,name2)
             wait()
             Frame.CanvasSize = Udim2.new(0,0,0,UIListLayout2.AbsoluteContentSize.Y)
         end)
-
-
+    end
+    return library
 
         function library:CreateSection(text)
 
@@ -295,6 +295,8 @@ function lib:CreateWindow(name,name2)
             TextLabel.Text = "~" .. text.. "~"
             TextLabel.TextColor3 = Color3.fromRGB(192, 192, 192)
             TextLabel.TextSize = 25.000
+            end
+            return library
                 
 
             function library:CreateButton(text,callback)
@@ -335,6 +337,8 @@ function lib:CreateWindow(name,name2)
                 ButtonOutline.ScaleType = Enum.ScaleType.Slice
                 ButtonOutline.SliceCenter = Rect.new(100, 100, 100, 100)
                 ButtonOutline.SliceScale = 0.120
+                end
+                return library
 
                 function library:CreateToggle(name, callback)
                     callback = callback or function() end
@@ -455,6 +459,8 @@ function lib:CreateWindow(name,name2)
                         
                     end
                     coroutine.wrap(QVQZICO_fake_script)()
+                    end
+                    return library
 
                     function library:CreateSlider(min,max,text,callback)
                         text = text or "Slider"
@@ -583,7 +589,9 @@ function lib:CreateWindow(name,name2)
                             end)
                         end
                         coroutine.wrap(QUKN_fake_script)()
-
+                        
+                        end
+                    return library
                         function library:CreateTB(name,placeholder,callback)
 
                             callback = callback or function() end
@@ -636,15 +644,4 @@ function lib:CreateWindow(name,name2)
                             end)
                      end
                     return library
-                end
-                return library
-            end
-            return library
-            end
-            return library
-        end
-        return library
-    end
-    return library
 end
-return lib
