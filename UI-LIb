@@ -1,4 +1,4 @@
--- Created By Aurelius#0863 --
+
 local lib = {}
 
 local circTime = 0.5
@@ -394,9 +394,9 @@ function lib:CreateWindow(name,name2)
                     CircleB.TextSize = 14.000
 
                     CircleB.MouseButton1Click:Connect(function()
-                        if _G.toggled == false then
-                            pcall(callback)
-                        end
+                        pcall(function()
+                            callback(_G.toggled)
+                        end)
                     end)
 
                     CircleBR.Name = "CircleBR"
@@ -442,14 +442,14 @@ function lib:CreateWindow(name,name2)
                                 TS:Create(ToggleB,TweenInfo.new(0.25),{ImageColor3 = Color3.fromRGB(26, 176, 109)}):Play()
                                 wait(0.25)
                                 debounce = false
-                                _G.toggled = true
+                                _G.toggled = not _G.toggled
                             elseif _G.toggled then
                                 debounce = false
                                 TS:Create(Circle, TweenInfo.new(0.25), {Position = UDim2.new(0.066, 0,0.042, 0)}):Play()
                                 TS:Create(ToggleB,TweenInfo.new(0.25),{ImageColor3 = Color3.fromRGB(176, 176, 176)}):Play()
                                 wait(0.25)
                                 debounce = true
-                                _G.toggled = false
+                                _G.toggled = not _G.toggled
                             end
                         end)
                         
