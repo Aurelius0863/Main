@@ -1,3 +1,7 @@
+--[[
+Created By Aurelius
+]]
+
 local lib = {}
 
 local circTime = 0.5
