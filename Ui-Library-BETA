@@ -1,7 +1,6 @@
 --[[
-Created By Aurelius
+Created By Aurelius#0863
 ]]
-
 local lib = {}
 
 local circTime = 0.5
@@ -19,61 +18,64 @@ Circ.ImageTransparency = 0.85
 local TS = game:GetService("TweenService")
 
 local Mouse = game.Players.LocalPlayer:GetMouse()
-
 --[[
-local Colors = {
-
-    ["Blue"] = {
-        Circ.ImageColor3 = Color3.fromRGB(65, 105, 226),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(45, 118, 166),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(58, 149, 210),
-        SliderInner.BorderColor3 = Color3.fromRGB(58, 149, 210),
-        BlueColor = Color3.fromRGB(58, 149, 210)
-    },
-    ["Green"] = {
-        Circ.ImageColor3 = Color3.fromRGB(26, 176, 109),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(21, 148, 91),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(26, 176, 109),
-        SliderInner.BorderColor3 = Color3.fromRGB(26, 176, 109),
-        GreenColor = Color3.fromRGB(26, 176, 109)
-    },
-    ["Purple"] = {
-        Circ.ImageColor3 = Color3.fromRGB(85, 26, 139),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(120, 81, 169),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(153, 102, 204),
-        SliderInner.BorderColor3 = Color3.fromRGB(153, 102, 204),
-        PurpleColor = Color3.fromRGB(120, 81, 169)
-    },
-    ["Red"] = {
-        Circ.ImageColor3 = Color3.fromRGB(197, 58, 61),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(155, 17, 30),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(200, 22, 39),
-        SliderInner.BorderColor3 = Color3.fromRGB(200, 22, 39),
-        RedColor = Color3.fromRGB(197, 0, 0)
-    },
-    ["Orange"] = {
-        Circ.ImageColor3 = Color3.fromRGB(170, 119, 47),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(229, 141, 0),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(255, 179, 71),
-        SliderInner.BorderColor3 = Color3.fromRGB(255, 179, 71),
-        OrangeColor = Color3.fromRGB(255, 179, 71)
-
-    },
-    ["Gray"] = {
-        Circ.ImageColor3 = Color3.fromRGB(149, 149, 149),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(130, 130, 130),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(149, 149, 149),
-        SliderInner.BorderColor3 = Color3.fromRGB(149, 149, 149),
-        GrayColor = Color3.fromRGB(26, 176, 109)
-     },
-     ["Pink"] = {
-        Circ.ImageColor3 = Color3.fromRGB(145, 82, 162),
-        SliderBtn_Roundify_12px.ImageColor3 = Color3.fromRGB(145, 82, 162),
-        SliderInner.BackgroundColor3 = Color3.fromRGB(187, 91, 210),
-        SliderInner.BorderColor3 = Color3.fromRGB(187, 91, 210)
-        PinkColor = Color3.fromRGB(187, 91, 210)
-    },
+local Colors = {}
+Blue = {
+    CircleColor = Color3.fromRGB(65, 105, 226),
+    SliderBackColor = Color3.fromRGB(45, 118, 166),
+    SliderInnerColor = Color3.fromRGB(58, 149, 210),
+    SliderInnerBorder = Color3.fromRGB(58, 149, 210),
+    BlueColor = Color3.fromRGB(58, 149, 210),
 }
+table.insert(Colors,1,Blue)
+Green = {
+   CircleColor = Color3.fromRGB(26, 176, 109),
+   SliderBackColor = Color3.fromRGB(21, 148, 91),
+   SliderInnerColor = Color3.fromRGB(26, 176, 109),
+   SliderInnerBorder = Color3.fromRGB(26, 176, 109),
+    GreenColor = Color3.fromRGB(26, 176, 109),
+}
+table.insert(Colors,2,Green)
+Purple = {
+    CircleColor = Color3.fromRGB(85, 26, 139),
+    SliderBackColor = Color3.fromRGB(120, 81, 169),
+    SliderInnerColor = Color3.fromRGB(153, 102, 204),
+    SliderInnerBorder = Color3.fromRGB(153, 102, 204),
+    PurpleColor = Color3.fromRGB(120, 81, 169),
+}
+table.insert(Colors,3,Purple)
+Red = {
+    CircleColor = Color3.fromRGB(197, 58, 61),
+    SliderBackColor = Color3.fromRGB(155, 17, 30),
+    SliderInnerColor = Color3.fromRGB(200, 22, 39),
+    SliderInnerBorder = Color3.fromRGB(200, 22, 39),
+    RedColor = Color3.fromRGB(197, 0, 0),
+}
+table.insert(Colors,4,Red)
+Orange = {
+    CircleColor = Color3.fromRGB(170, 119, 47),
+    SliderBackColor = Color3.fromRGB(229, 141, 0),
+    SliderInnerColor = Color3.fromRGB(255, 179, 71),
+    SliderInnerBorder = Color3.fromRGB(255, 179, 71),
+    OrangeColor = Color3.fromRGB(255, 179, 71),
+}
+table.insert(Colors,5,Orange);
+Gray = {
+    CircleColor = Color3.fromRGB(149, 149, 149),
+    SliderBackColor = Color3.fromRGB(130, 130, 130),
+    SliderInnerColor = Color3.fromRGB(149, 149, 149),
+    SliderInnerBorder = Color3.fromRGB(149, 149, 149),
+    GrayColor = Color3.fromRGB(26, 176, 109),
+}
+table.insert(Colors,6,Gray);
+Pink = {
+    CircleColor = Color3.fromRGB(145, 82, 162),
+    SliderBackColor = Color3.fromRGB(145, 82, 162),
+    SliderInnerColor = Color3.fromRGB(187, 91, 210),
+    SliderInnerBorder = Color3.fromRGB(187, 91, 210),
+    PinkColor = Color3.fromRGB(187, 91, 210),
+}
+table.insert(Colors,7,Pink);
 ]]
 function CircleClick(Button, X, Y)
     spawn(function()
@@ -109,24 +111,17 @@ function lib:CreateWindow(name,name2,LibColor)
     if game.CoreGui:FindFirstChild("UI") ~= nil then
         game.CoreGui:FindFirstChild("UI"):Destroy()
     end
-    
-    --[[
-    LibColor = LibColor or Colors.Gray
+--[[
+    LibColor = LibColor or Gray()
 
-    if LibColor == "Blue" then
-        LibColor = Colors.Blue
-    elseif LibColor == "Green" then
-        LibColor = Colors.Green
-    elseif LibColor == "Purple" then
-        LibColor = Colors.Purple
-    elseif LibColor == "Red" then
-        LibColor = Colors.Red
-    elseif LibColor == "Orange" then
-        LibColor = Colors.Orange
-    elseif LibColor == "Pink" then
-        LibColor = Colors.Pink
+    for i ,v in pairs (Colors) do
+        if v.Name == LibColor then
+            for i ,v in pairs(v) do
+                
+            end
+        end
     end
-]]
+    ]]
     local UI = Instance.new("ScreenGui")
     local Main = Instance.new("ImageLabel")
     local Tabs = Instance.new("ImageLabel")
@@ -378,6 +373,8 @@ function lib:CreateWindow(name,name2,LibColor)
             function library:CreateButton(text,callback)
                 callback = callback or function() end
                 
+                text = text or "Button"
+
                 local Button = Instance.new("TextButton")
                 local ButtonOutline = Instance.new("ImageLabel")
                 local Circle = Instance.new("ImageLabel")
@@ -393,6 +390,7 @@ function lib:CreateWindow(name,name2,LibColor)
                 Button.Font = Enum.Font.Merriweather
                 Button.TextColor3 = Color3.fromRGB(192, 192, 192)
                 Button.TextSize = 20.000
+                Button.Text = text
 
                 Button.MouseButton1Click:Connect(function()
                     CircleClick(Button,Mouse.X,Mouse.Y)
@@ -414,8 +412,10 @@ function lib:CreateWindow(name,name2,LibColor)
                 ButtonOutline.SliceCenter = Rect.new(100, 100, 100, 100)
                 ButtonOutline.SliceScale = 0.120
                 
-                function library:CreateToggle(name,callback)
+                function library:CreateToggle(name,Color,callback)
                     callback = callback or function() end
+
+                    Color = Color orColor3.fromRGB(26, 176, 109)
 
                     local ToggleBack = Instance.new("ImageLabel")
                     local ToggleB = Instance.new("ImageLabel")
