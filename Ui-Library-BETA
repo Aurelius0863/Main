@@ -1,6 +1,7 @@
 --[[
 Created By Aurelius#0863
 ]]
+
 local lib = {}
 
 local circTime = 0.5
@@ -412,10 +413,8 @@ function lib:CreateWindow(name,name2,LibColor)
                 ButtonOutline.SliceCenter = Rect.new(100, 100, 100, 100)
                 ButtonOutline.SliceScale = 0.120
                 
-                function library:CreateToggle(name,Color,callback)
+                function library:CreateToggle(name,callback)
                     callback = callback or function() end
-
-                    Color = Color orColor3.fromRGB(26, 176, 109)
 
                     local ToggleBack = Instance.new("ImageLabel")
                     local ToggleB = Instance.new("ImageLabel")
