@@ -568,7 +568,7 @@ function lib:CreateWindow(name,name2)
                         if toggled == false then
                             debounce = true
                             TS:Create(Circle, TweenInfo.new(0.25), {Position = UDim2.new(0.6, 0,0.042, 0)}):Play()
-                            TS:Create(ToggleB,TweenInfo.new(0.25),{ImageColor3 = Color}):Play()
+                            TS:Create(ToggleB,TweenInfo.new(0.25),{ImageColor3 = Color3.fromRGB(26, 176, 109)}):Play()
                             wait(0.25)
                             debounce = false
                             toggled = not toggled
