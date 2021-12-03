@@ -6,15 +6,6 @@ local lib = {}
 
 local circTime = 0.5
 
-local Circ = Instance.new("ImageLabel")
-Circ.Name = "Circle"
-Circ.Parent = nil
-Circ.BackgroundTransparency = 1
-Circ.ZIndex = 10
-Circ.Image = "rbxassetid://266543268"
-Circ.ImageColor3 = Color3.fromRGB(26, 176, 109)
-Circ.BorderSizePixel = 1
-Circ.ImageTransparency = 0.85
 
 local TS = game:GetService("TweenService")
 
@@ -22,6 +13,17 @@ local Mouse = game.Players.LocalPlayer:GetMouse()
 
 function CircleClick(Button, X, Y)
     spawn(function()
+            
+        local Circ = Instance.new("ImageLabel", Button)
+        Circ.Name = "Circle"
+        Circ.Parent = nil
+        Circ.BackgroundTransparency = 1
+        Circ.ZIndex = 10
+        Circ.Image = "rbxassetid://266543268"
+        Circ.ImageColor3 = Color3.fromRGB(26, 176, 109)
+        Circ.BorderSizePixel = 1
+        Circ.ImageTransparency = 0.85
+
             Button.ClipsDescendants = true
             
             local Circle2 = Circ:Clone()
@@ -940,7 +942,7 @@ function lib:CreateWindow(name,name2)
                 end
             end
 
-            function Elements:CreateTP()
+        function Elements:CreateTP()
 
             local TextBoxButtonBack = Instance.new("ImageLabel")
             local TextBox = Instance.new("TextBox")
@@ -951,7 +953,7 @@ function lib:CreateWindow(name,name2)
             local TextBoxRound = Instance.new("UICorner")
 
 
-            TextBoxRound.Parent = game.StarterGui.UI.Main.Items["Tab1"].TextBoxButtonBack.TextBox   
+            TextBoxRound.Parent = TextBox   
 
 
             UICorner.Parent = ButtonText
@@ -1010,12 +1012,11 @@ function lib:CreateWindow(name,name2)
                 local person = Players[arg.Text].Character.HumanoidRootPart
                 plr.CFrame = person.CFrame
             end)
-            
-            end
+        end
             function Elements:CreateKeyBind(name,placeholder)
             
             name = name or "Toggle Gui"
-		placeholder = placeholder or "Key"
+		    placeholder = placeholder or "Key"
 
             local ToggleGUI = Instance.new("ImageLabel")
             local TBLabel = Instance.new("TextLabel")
@@ -1072,7 +1073,7 @@ function lib:CreateWindow(name,name2)
                 
             end
             coroutine.wrap(JTSSYPH_fake_script)()
-            end
+        end
             return Elements
         end
         return Sections
