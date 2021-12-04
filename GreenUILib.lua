@@ -2,7 +2,6 @@
 UI Lib Design - Aurelius0863
 UI Lib Scripting - Aurelius0863
 ]]
-local lib = {}
 
 local circTime = 0.5
 
@@ -49,7 +48,9 @@ function CircleClick(Button, X, Y)
     end)
 end
 
-function lib:CreateWindow(name,name2)
+local library = {}
+
+function library:CreateWindow(name,name2)
     if game.CoreGui:FindFirstChild("UI") ~= nil then
         game.CoreGui:FindFirstChild("UI"):Destroy()
     end
@@ -1079,4 +1080,4 @@ function lib:CreateWindow(name,name2)
     end
     return AwesomeTabs
 end
-return lib
+return library
