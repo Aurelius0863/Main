@@ -1,4 +1,9 @@
 if game.CoreGui:FindFirstChild("ScreenGui") ~= nil then
+	game.StarterGui:SetCore("SendNotification", {
+		Text = "Tea Hub has already been loaded",
+		Title = "ATLA Script",
+		Duration = 3
+	})
 	game.CoreGui:FindFirstChild("ScreenGui"):Destroy()
 end
 game.StarterGui:SetCore("SendNotification", {
@@ -6344,7 +6349,7 @@ coroutine.wrap(HZPHAVN_fake_script)()
 local function CWDEW_fake_script() -- SubF.LocalScript 
 	local script = Instance.new('LocalScript', ScreenGui.SubF)
 
-	local t = script.Parent.SubName
+	local t = script.Parent.SubValue
 	
 	local Tb = script.Parent.Parent.StatBox
 	
@@ -6407,7 +6412,11 @@ local function GYXW_fake_script() -- VehicleF.LocalScript
 	while wait(0.5) do
 		for i,v in pairs(Players:GetChildren()) do
 			if Tb.Text == v.Name and v.PlayerData.Stats then
-				t.Text = tostring(v.PlayerData.Stats.Vehicle.Value)
+				if v.PlayerData.Stats.Vehicle.Value == "" or v.PlayerData.Stats.Vehicle.Value == " " then
+					t.Text = "None"
+				else
+					t.Text = tostring(v.PlayerData.Stats.Vehicle.Value)
+				end
 			end
 		end
 	end
@@ -6426,7 +6435,11 @@ local function VXGFHZM_fake_script() -- QuestF.LocalScript
 		for i,v in pairs(Players:GetChildren()) do
 			if Tb.Text == v.Name and v.PlayerData.Quest then
 				if v.PlayerData.Quest.QuestName.Value == "" or v.PlayerData.Quest.Value == " " then
-					t.Text = tostring(v.PlayerData.Quest.PreviousQuest.Value)
+					if v.PlayerData.Quest.PreviousQuest.Value == "" or v.PlayerData.Quest.PreviousQuest.Value == " " then
+						t.Text = "No Quests"
+					else
+						t.Text = tostring(v.PlayerData.Quest.PreviousQuest.Value)
+					end
 				else
 					t.Text = tostring(v.PlayerData.Quest.QuestName.Value)
 				end
